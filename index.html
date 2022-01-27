@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>My CMP v2 Testpage</title>    
     
-    <!-- Usercentrics SDP -->
-    <script id="usercentrics-cmp" data-settings-id="6rQaAUqml" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" async></script>
-    <!-- End Usercentrics SDP -->
-    
-    <!-- Usercentrics CMP -->
+    <!-- BEGIN Usercentrics related code -->
+    <link rel="preconnect" href="//app.usercentrics.eu">
+    <link rel="preconnect" href="//api.usercentrics.eu">
+    <link rel="preconnect" href="//privacy-proxy.usercentrics.eu">
+    <link rel="preload" href="//app.usercentrics.eu/browser-ui/latest/loader.js" as="script">
+    <link rel="preload" href="//privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js" as="script">
     <script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="6rQaAUqml" async></script>
-    <!-- End Usercentrics CMP -->
+    <script type="application/javascript" src="https://privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js"></script>
+    <!-- End Usercentrics related code -->
     
     <!-- Google Analytics -->
     <script type="text/plain" data-usercentrics="Google Analytics">
