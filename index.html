@@ -12,8 +12,22 @@
     <link rel="preconnect" href="//privacy-proxy.usercentrics.eu">
     <link rel="preload" href="//app.usercentrics.eu/browser-ui/latest/loader.js" as="script">
     <link rel="preload" href="//privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js" as="script">
-    <script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="6rQaAUqml" async></script>
+    <script id="usercentrics-cmp" data-language="en" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="6rQaAUqml" async></script>
     <script type="application/javascript" src="https://privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js"></script>
+    <script type="application/javascript">
+    window.addEventListener("ucEvent", function (e) {    
+    if( e.detail && e.detail.event == "consent_status") {
+        // check for consent status of service "Google Analytics"
+        if(e.detail['Google Analytics'] === true) {
+          alert('Google Analytics has consent');
+        }
+        else {
+          console.log('Google Analytics does not have consent');
+          UC_UI.updateLanguage("de");
+        }
+    }
+});
+        </script>
     <!-- End Usercentrics related code -->
     
     <!-- Google Analytics -->
