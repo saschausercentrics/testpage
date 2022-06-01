@@ -7,13 +7,7 @@
     <title>My CMP v2 Testpage</title>    
     
     <!-- BEGIN Usercentrics related code -->
-    <link rel="preconnect" href="//app.usercentrics.eu">
-    <link rel="preconnect" href="//api.usercentrics.eu">
-    <link rel="preconnect" href="//privacy-proxy.usercentrics.eu">
-    <link rel="preload" href="//app.usercentrics.eu/browser-ui/2.21.0/loader.js" as="script">
-    <link rel="preload" href="//privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js" as="script">
-    <script id="usercentrics-cmp" data-language="en" src="https://app.usercentrics.eu/browser-ui/2.29.0/loader.js" integrity="sha384-sk5xB6+CEx8Chzyh3NbtvSerFjNi/I1Loud7IXpAr7SoUV1DVAraAvxEyKs8eYOt" crossorigin="anonymous" data-settings-id="6rQaAUqml" async></script>
-    <script type="application/javascript" src="https://privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js"></script>
+    <script id="usercentrics-cmp" data-language="en" src="https://app.usercentrics.eu/browser-ui/2.29.0/bundle.js" integrity="sha384-4Lgl0XJj002fwfDlY4sqYPtQ/AbtjCWW4F1/wy91zZm98iRfqNIYR8BRRGpoQHGj" crossorigin="anonymous" data-settings-id="6rQaAUqml" async></script>
     <script type="text/javascript">
     window.addEventListener("ucEvent", function (e) {    
     if( e.detail && e.detail.event == "consent_status") {
