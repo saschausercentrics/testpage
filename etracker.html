@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+    <title>My CMP eTracker Testpage</title>    
+    
+    <!-- BEGIN Usercentrics related code -->
+    <link rel="preconnect" href="//app.usercentrics.eu">
+    <link rel="preconnect" href="//api.usercentrics.eu">
+    <link rel="preconnect" href="//privacy-proxy.usercentrics.eu">
+    <link rel="preload" href="//app.usercentrics.eu/browser-ui/2.21.0/loader.js" as="script">
+    <link rel="preload" href="//privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js" as="script">
+    <script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="6rQaAUqml" async></script>
+    <!-- End Usercentrics related code -->
+  </head>
+  <body>
+
+    <h1>Usercentrics CMP V2 Test Page</h1>
+    <img src="https://1nf2x118nwr23j3l7o2i40qd-wpengine.netdna-ssl.com/wp-content/uploads/2020/04/190208-UCS-Logo-800px.png" alt="uc-logo">
+    
+    <h2>Metallica Video</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/lfSdR-ymk9E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<script>
+  function etrackerSetCookieConsent(e) {
+    var data = e.data || e.detail;
+    if(data && (data.event === 'consent_changed' || data.event === 'consent_status') && typeof _etracker !== 'undefined') {
+      if(data['etracker'] === true)
+        _etracker.enableCookies('mydomain.com');
+      else if (data['etracker'] === false)
+        _etracker.disableCookies('mydomain.com');
+    }
+  };
+  window.addEventListener('onConsentStatusChange', etrackerSetCookieConsent, false);
+</script>
+  </body>
+
+</html>
