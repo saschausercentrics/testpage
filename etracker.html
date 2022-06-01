@@ -21,6 +21,7 @@
     <h2>Metallica Video</h2>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/lfSdR-ymk9E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <script>
+    if (window.UC_UI && window.UC_UI.isInitialized()) {
   function etrackerSetCookieConsent(e) {
     var data = e.data || e.detail;
     if(data && (data.event === 'consent_changed' || data.event === 'consent_status') && typeof _etracker !== 'undefined') {
@@ -30,6 +31,19 @@
         console.log('etracker does not have consent');
     }
   };
+} else {
+  window.addEventListener('UC_UI_INITIALIZED', function(e) {
+    function etrackerSetCookieConsent(e) {
+    var data = e.data || e.detail;
+    if(data && (data.event === 'consent_changed' || data.event === 'consent_status') && typeof _etracker !== 'undefined') {
+      if(data['etracker'] === true)
+        console.log('etracker has consent');
+      else if (data['etracker'] === false)
+        console.log('etracker does not have consent');
+    }
+  };
+  });
+}
   window.addEventListener('onConsentStatusChange', etrackerSetCookieConsent, false);
 </script>
   </body>
