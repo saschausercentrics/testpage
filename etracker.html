@@ -27,9 +27,9 @@
     var data = e.data || e.detail;
     if(data && (data.event === 'consent_changed' || data.event === 'consent_status') && typeof _etracker !== 'undefined') {
       if(data['etracker'] === true)
-        _etracker.enableCookies('mydomain.com');
+        console.log('etracker has consent');
       else if (data['etracker'] === false)
-        _etracker.disableCookies('mydomain.com');
+        console.log('etracker does not have consent');
     }
   };
   window.addEventListener('onConsentStatusChange', etrackerSetCookieConsent, false);
