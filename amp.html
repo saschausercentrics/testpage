@@ -44,12 +44,16 @@
    <!-- Below we are using the specific usercentrics settingsId "egLMgjg9j" -->
     <amp-consent layout="nodisplay" id="consent-element" type="Usercentrics">
         <script type="application/json">
-            {
-                "postPromptUI": "post-prompt-ui",
-                "clientConfig": {
-                    "id": "4duO-XFi7"
-                }
-            }
+        {
+			"promptUISrc": "https://amp.usercentrics.eu/amp-prompt-ui.html",
+			"consentRequired": "remote",
+			"consentInstanceId": "Usercentrics",
+			"checkConsentHref": "https://consents.usercentrics.eu/amp/checkConsent",
+			"clientConfig": {
+				"id": "4duO-XFi7"
+			},
+			"exposesTcfApi": true
+		}
         </script>
     </amp-consent>
     <!-- END of AMP boilerplate code to include Usercentrics CMP in website -->
