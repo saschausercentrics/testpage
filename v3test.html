@@ -9,6 +9,18 @@
     <!-- BEGIN Usercentrics related code -->
     <script id="usercentrics-cmp" data-settings-id="4739y_4s4Nvkn2" src="https://web.cmp.usercentrics.eu/ui/loader.js" async></script>
     <!-- End Usercentrics related code -->
+
+    <script>
+    var page = 0;
+    window.addEventListener("uc-event", function (e) {
+        if ((e.detail.event == "consent_status" && e.detail.type == "implicit") || 
+            (e.detail.event == "consent_status" && e.detail.type == "explicit" && page == 0)) {
+            page = 1;
+        } else if (e.detail.event == "consent_status" && e.detail.type == "explicit" && page == 1) {
+            location.reload();
+        }
+    });
+</script>
     
 </head>
 
