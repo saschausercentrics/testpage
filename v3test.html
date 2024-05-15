@@ -11,6 +11,12 @@
     <!-- End UC V3 -->
 
     <script>
+    window.addEventListener('UC_CONSENT', function (event) {
+    console.log('UC_CONSENT event detail', event.detail)
+    });
+    </script>
+
+    <script>
     var page = 0;
     window.addEventListener("uc-event", function (e) {
         if ((e.detail.event == "consent_status" && e.detail.type == "implicit") || 
