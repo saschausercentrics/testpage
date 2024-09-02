@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+    <title>Window Event Listener Test with V3</title> 
+    <!-- Usercentrics -->
+<script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="5nwB8A_lcTH_gq" async></script>
+  <!-- End Usercentrics -->
+    <!-- Start event listener for V3 -->
+    <script>
+      window.addEventListener("ucEvent", function (e) {    
+  if(e.detail && e.detail.event == "consent_status" && e.detail.type == "EXPLICIT") {
+    // check for consent status of service "Google Ads Remarketing"
+    if(e.detail['Google Ads Remarketing'] === true) {
+      console.log('Google Ads Remarketing has consent, this works with V3');
+    }
+    else {
+      console.log('Google Ads Remarketing has no consent');
+    }
+  }
+});
+    </script>
+    <!-- End event listener -->
+        <!-- Start event listener for V3 -->
+    <script>
+      window.addEventListener("ucEvent", function (e) {    
+  if(e.detail && e.detail.event == "consent_status" && e.detail.type == "explicit") {
+    // check for consent status of service "Google Ads Remarketing"
+    if(e.detail['Google Ads Remarketing'] === true) {
+      console.log('Google Ads Remarketing has consent, this does not work with V3');
+    }
+    else {
+      console.log('Google Ads Remarketing has no consent');
+    }
+  }
+});
+    </script>
+    <!-- End event listener -->
+</head>
+
+<body>
+    <h1>Window Event Listener Test with V3</h1>
+    <img src="https://usercentrics.com/wp-content/uploads/2020/04/190208-UCS-Logo-800px.png" alt="uc-logo">
+</body>
+
+</html>
