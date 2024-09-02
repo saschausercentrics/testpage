@@ -8,6 +8,24 @@
     <!-- Usercentrics -->
     <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="5nwB8A_lcTH_gq" async></script>
     <!-- End Usercentrics -->
+    <!-- Page reload event listener -->
+    <script>
+  var page = 0;
+  window.addEventListener('ucEvent', function (e) {
+    if (e.detail.event == 'consent_status' && e.detail.type == 'implicit' && page == 0) {
+      page = 1;
+    } else {
+      if (e.detail.event == 'consent_status' && e.detail.type == 'explicit' && page == 0) {
+        page = 1;
+      } else {
+        if (e.detail.event == 'consent_status' && e.detail.type == 'explicit' && page == 1) {
+          location.reload();
+        }
+      }
+    }
+  });
+</script>
+    <!-- End event listener -->
     <!-- Start event listener for V3 -->
     <script>
       window.addEventListener("ucEvent", function (e) {    
