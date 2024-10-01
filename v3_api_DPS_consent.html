@@ -9,8 +9,18 @@
         <!-- Usercentrics -->
     <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="fwJIoDUy54ylA1" async></script>
     <script>
-        cmp_consents = await window.__ucCmp.getConsentDetails()
-      console.log(cmp_consents.services["BJz7qNsdj-7"].consent)
+        async function customConsentHandler() {
+        cmp_consents = await window.__ucCmp.getConsentDetails();
+        console.log(cmp_consents.services["BJz7qNsdj-7"].consent.given)
+  }
+
+  if (!window.__ucCmp || !__ucCmp.isInitialized()) {
+      window.addEventListener('UC_UI_INITIALIZED', function() {
+          customConsentHandler();
+      });
+  } else {
+        customConsentHandler();
+  }
         </script>
     <!-- End Usercentrics -->
     
