@@ -30,6 +30,26 @@
         window['gtag_enable_tcf_support'] = true
     </script>
 
+    <script>
+    window.addEventListener("ucEvent", function (e) {
+        if (e.detail && e.detail.event == "consent_status" && e.detail.type == "EXPLICIT") {
+            // check for consent status of GA4
+            if (e.detail['Google Analytics 4'] === true) {
+gtag('consent', 'update', {
+    'analytics_storage': 'granted'
+  });
+                console.log('analytics_storage set to granted');
+            }
+            else {
+                gtag('consent', 'update', {
+    'analytics_storage': 'denied'
+  });
+                console.log('analytics_storage set to denied');
+            }
+        }
+    });
+</script>
+
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
