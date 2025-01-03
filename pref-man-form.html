@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+    <title>Pref Man Form Test</title>
+    <!-- Usercentrics -->
+    <script src="https://dc.preference-management.usercentrics.eu/latest/data-collector.js"></script>
+    <!-- End Usercentrics -->
+</head>
+
+<body>
+    <h1>Pref Man Form Test</h1>
+    <form id="data_form" method="post">
+        <div>
+        <label for="email">Email:</label>
+        <input type="email" id="user_email" name="email">
+        </div>
+        <div>
+        <input type="checkbox" id="consent_field" name="consent_field" required>    
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <script>
+        // Attach the preference management event listener
+        window.setupForm({
+          event: {
+            // The element selector that you want to listen for an event, can be a form, button, etc
+            // Use CSS selectors like:
+            // - .theElementClass
+            // - #theElementId
+            // - div.anything > form
+            elementSelector: '#data_form', // The form to capture preferences
+            eventType: "submit", // The event type, usually form submission
+            observeDomChanges: false,
+          },
+          widgetId: "7f99ea79-5a9c-4c2b-8749-f327e6f96dea", // Unique widget ID
+          pacId: "59b9c76c-eaa4-4e64-8fbe-f2a4bc844250", // Configuration ID
+          publicApiKey: "0ea2edb0dc2d0a55efa808cd7ac839f97856c1d012b9b6b6bd7f5a94faf3f1bb", // Public API key to authenticate
+          userId: {
+            selector: '#user_email' // Capture user ID (email)
+          },
+          inputs: [
+            {
+              selector: '#consent_field', // Element capturing user preferences
+              optionUuid: "e4c3846a-b109-4f4e-a350-3dd0011e7390", // Option ID for preferences,
+              validate: function () {
+                // (optional) Return validation result to prevent submission
+                return true;
+              }
+            }
+          ]
+        });
+      </script>
+      <p><a href="https://app-preference.preference-management.usercentrics.eu/login/59b9c76c-eaa4-4e64-8fbe-f2a4bc844250?lng=en" target="_blank">Go to the Preference Center</a></a></p>
+</body>
+
+</html>
