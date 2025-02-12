@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+    <title>Usercentrics SDP Testpage</title>  
+    <!-- Usercentrics -->
+    <script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="cL6JIVOIuamcxR" async></script>
+    <script type="application/javascript" src="https://privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js"></script>
+    <!-- End Usercentrics -->
+    
+</head>
+
+<body>
+    <h1>Usercentrics SDP Testpage</h1>
+    <script>
+      //replace the S1pcEj_jZX to the technology template id that you want!
+      var templateID = "33EMFy4z3NVKSu";
+      
+      uc.blockElements({
+      [templateID] : '#log' // Show google maps overlay over the element with ID '12345'
+      });
+      window.addEventListener('UC_UI_INITIALIZED', function(event) {
+              var technologyName = UC_UI.getServicesBaseInfo().find(data => (data.id === templateID)).name;
+              
+
+          window.addEventListener("ucEvent", function (e) {
+      
+          if(e.detail.type == "explicit" && e.detail[technologyName.toString()]){
+              //replace the iframe to the code that you want show
+              document.getElementById('log').innerHTML = '<iframe src="https://saschausercentrics.github.io/testpage/blank.html" width="400" height="300" frameborder="0" style="border:0"></iframe>';
+              
+      }
+      });
+  });
+      </script>
+
+<div id="log"></div>
+</body>
+
+</html>
