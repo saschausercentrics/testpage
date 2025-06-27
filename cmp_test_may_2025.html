@@ -7,6 +7,17 @@
     <title>CMP Test</title>
     <!-- Usercentrics -->
     <script id="usercentrics-cmp" src="https://web.cmp.usercentrics.eu/ui/loader.js" data-settings-id="AzbOGe0W58_AVD" async></script>
+    <script>
+  window.addEventListener('onUcImprintClick', function (e) {
+    // Insert here your logic for Imprint
+    console.log("Custom Imprint Link Clicked!!")
+  });
+
+  window.addEventListener('onUcPrivacyClick', function (e) {
+    // Insert here your logic for Privacy Policy
+    console.log("Custom Privacy Policy Link Clicked!!")
+  });
+</script>
     <!-- End Usercentrics -->
 </head>
 
